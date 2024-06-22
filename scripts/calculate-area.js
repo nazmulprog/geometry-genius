@@ -24,7 +24,7 @@ function calculateAreaOfGeometricShape(sideOneId, sideTwoId, showElementId, cons
     const area = constant * sideOne * sideTwo;
 
     // validate input
-    if(isNaN(area) || (area < 0)){
+    if(isNaN(area) || sideOne < 0 || sideTwo < 0){
         alert('Please Enter a Positive Number');
         return;
     }
