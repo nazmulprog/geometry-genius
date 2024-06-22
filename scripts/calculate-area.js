@@ -23,6 +23,12 @@ function calculateAreaOfGeometricShape(sideOneId, sideTwoId, showElementId, cons
     // calculate area
     const area = constant * sideOne * sideTwo;
 
+    // validate input
+    if(isNaN(area)){
+        alert('Please Enter a Number');
+        return;
+    }
+
     // set area into an element
     setTextValueById(showElementId, area)
 
