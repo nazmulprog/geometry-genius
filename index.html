@@ -33,7 +33,7 @@
                         </div>
                         <p class="font-semibold mt-1">Area : <span id="areaValue">0</span>cm<sup>2</sup></p>
                         <div>
-                            <button onclick="calculateTriangleArea()" class="btn btn-primary w-full mt-1">Calculate</button>
+                            <button onclick="calculateTriangleArea(event)" class="btn btn-primary w-full mt-1">Calculate</button>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         </div>
                         <p class="font-semibold mt-1">Rectangle Area : <span id="rectangleAreaValue">0</span>cm<sup>2</sup></p>
                         <div>
-                            <button onclick="calculateRectangleArea()" class="btn btn-primary w-full mt-1">Calculate</button>
+                            <button onclick="calculateRectangleArea(event)" class="btn btn-primary w-full mt-1">Calculate</button>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                         </div>
                         <p class="font-semibold mt-1">Parallelogram Area : <span id="parallelogramAreaValue">0</span>cm<sup>2</sup></p>
                         <div>
-                            <button onclick="calculateParallelogramArea()" class="btn btn-primary w-full mt-1">Calculate</button>
+                            <button onclick="calculateParallelogramArea(event)" class="btn btn-primary w-full mt-1">Calculate</button>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                         </div>
                         <p class="font-semibold mt-1">Parallelogram Area : <span id="rhombusAreaValue">0</span>cm<sup>2</sup></p>
                         <div>
-                            <button onclick="calculateRhombusArea()" class="btn btn-primary w-full mt-1">Calculate</button>
+                            <button onclick="calculateRhombusArea(event)" class="btn btn-primary w-full mt-1">Calculate</button>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                         </div>
                         <p class="font-semibold mt-1">Pentagon Area : <span id="pentagonAreaValue">0</span>cm<sup>2</sup></p>
                         <div>
-                            <button onclick="calculatePentagonArea()" class="btn btn-primary w-full mt-1">Calculate</button>
+                            <button onclick="calculatePentagonArea(event)" class="btn btn-primary w-full mt-1">Calculate</button>
                         </div>
                     </div>
                 </div>
@@ -128,15 +128,22 @@
                         </div>
                         <p class="font-semibold mt-1">Ellipse Area : <span id="ellipseAreaValue">0</span>cm<sup>2</sup></p>
                         <div>
-                            <button onclick="calculateEllipseArea()" class="btn btn-primary w-full mt-1">Calculate</button>
+                            <button onclick="calculateEllipseArea(event)" class="btn btn-primary w-full mt-1">Calculate</button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- area calculation -->
-            <!-- <div class="flex w-64 border-2 border-red-300">
-                <h2 class="text-3xl">Area Calculation</h2>
-            </div> -->
+            <div class="w-80 border-2 border-gray-300 px-1 rounded-md">
+                <h2 class="text-xl text-center font-semibold mb-4">Area Calculation</h2>
+                <div id="calculation-entry">
+                    <!-- <div class="grid grid-cols-3 font-semibold bg-gray-200 px-1 py-2 rounded-md mb-2 text-sm">
+                        <p>1.Parallelogram</p>
+                        <p class="text-center">200</p>
+                        <button class="btn btn-xs btn-outline btn-primary">convert</button>
+                    </div> -->
+                </div>
+            </div>
         </div>
     </main>
     <script src="scripts/calculate-area.js"></script>

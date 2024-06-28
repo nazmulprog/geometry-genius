@@ -13,7 +13,7 @@ function setTextValueById(elementId, textValue) {
 }
 
 // calculate the geometric shape area
-function calculateAreaOfGeometricShape(sideOneId, sideTwoId, showElementId, constant = 1) {
+function calculateAreaOfGeometricShape(sideOneId, sideTwoId, showElementId, areaType, constant = 1) {
     // first sides of geometric shape
     const sideOne = getInputValueById(sideOneId);
 
@@ -30,12 +30,13 @@ function calculateAreaOfGeometricShape(sideOneId, sideTwoId, showElementId, cons
     }
 
     // set area into an element
-    setTextValueById(showElementId, area.toFixed(2))
+    setTextValueById(showElementId, area.toFixed(2));
+    addToCalculationEntry(areaType, area);
 
 }
 
 
-function calculateTriangleArea() {
+function calculateTriangleArea(event) {
     /*
     // get triangle base value
     const baseValue = getInputValueById('triangle-base')
@@ -51,10 +52,11 @@ function calculateTriangleArea() {
     */
 
     // calculate area using function
-    calculateAreaOfGeometricShape('triangle-base', 'triangle-height', 'areaValue', 0.5);
+    const areaType = event.target.parentNode.parentNode.firstElementChild.innerText;
+    calculateAreaOfGeometricShape('triangle-base', 'triangle-height', 'areaValue', areaType, 0.5);
 }
 
-function calculateRectangleArea() {
+function calculateRectangleArea(event) {
     /*
     // get rectangle length value
     const lengthValue = getInputValueById('rectangle-length');
@@ -70,25 +72,42 @@ function calculateRectangleArea() {
     */
 
     // calculate area using function
-    calculateAreaOfGeometricShape('rectangle-length', 'rectangle-width', 'rectangleAreaValue', 1);
+    const areaType = event.target.parentNode.parentNode.firstElementChild.innerText;
+    calculateAreaOfGeometricShape('rectangle-length', 'rectangle-width', 'rectangleAreaValue', areaType, 1);
 }
 
-function calculateParallelogramArea() {
+function calculateParallelogramArea(event) {
     // calculate area using function
-    calculateAreaOfGeometricShape('parallelogram-base', 'parallelogram-height', 'parallelogramAreaValue', 1);
+    const areaType = event.target.parentNode.parentNode.firstElementChild.innerText;
+    calculateAreaOfGeometricShape('parallelogram-base', 'parallelogram-height', 'parallelogramAreaValue', areaType, 1);
 }
 
-function calculateRhombusArea() {
+function calculateRhombusArea(event) {
     // calculate area using function
-    calculateAreaOfGeometricShape('rhombus-first-diagonal', 'rhombus-second-diagonal', 'rhombusAreaValue', 0.5);
+    const areaType = event.target.parentNode.parentNode.firstElementChild.innerText;
+    calculateAreaOfGeometricShape('rhombus-first-diagonal', 'rhombus-second-diagonal', 'rhombusAreaValue',areaType, 0.5);
 }
 
-function calculatePentagonArea() {
+function calculatePentagonArea(event) {
     // calculate area using function
-    calculateAreaOfGeometricShape('pentagon-perimeter', 'pentagon-apothem', 'pentagonAreaValue', 0.5);
+    const areaType = event.target.parentNode.parentNode.firstElementChild.innerText;
+    calculateAreaOfGeometricShape('pentagon-perimeter', 'pentagon-apothem', 'pentagonAreaValue', areaType, 0.5);
 }
 
-function calculateEllipseArea() {
+function calculateEllipseArea(event) {
     // calculate area using function
-    calculateAreaOfGeometricShape('ellipse-major-axis', 'ellipse-minor-axis', 'ellipseAreaValue', 3.1416);
+    const areaType = event.target.parentNode.parentNode.firstElementChild.innerText;
+    calculateAreaOfGeometricShape('ellipse-major-axis', 'ellipse-minor-axis', 'ellipseAreaValue', areaType, 3.1416);
+}
+
+// add to calculation entry
+function addToCalculationEntry(areaType, area){
+    const calculationEntry = document.getElementById('calculation-entry');
+    const div = document.createElement('div');
+    calculationEntry.appendChild(div);
+    div.innerHTML = `<div class="grid grid-cols-3 font-semibold bg-gray-200 px-1 py-2 rounded-md mb-2 text-sm">
+                        <h4>${div.childElementCount+1}.${areaType}</h4>
+                        <h4  class="text-center"><span>${area}</span>cm<sup>2</sup></h4>
+                        <button class="btn btn-xs btn-outline btn-primary">convert</button>
+                    </div>`;
 }
